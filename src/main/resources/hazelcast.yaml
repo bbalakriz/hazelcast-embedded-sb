@@ -1,0 +1,7 @@
+hazelcast:
+  network:
+    join:
+      kubernetes:
+        enabled: true
+        namespace: hazelcast-embedded
+        service-name: hzcast-app-svc
