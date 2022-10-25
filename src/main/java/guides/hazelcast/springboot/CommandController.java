@@ -14,12 +14,16 @@ public class CommandController {
     @Autowired
     private HazelcastInstance hazelcastInstance;
 
-    private ConcurrentMap<String,String> retrieveMap() {
+    private ConcurrentMap<String, String> retrieveMap() {
         return hazelcastInstance.getMap("map");
     }
 
     @PostMapping("/put")
-    public CommandResponse put(@RequestParam(value = "key") String key, @RequestParam(value = "value") String value) {
+    public CommandResponse put(@RequestParam(value = "key") String key,
+            @RequestParam(value = "value", required = false) String value) {
+        if (value == null) {
+            value = "sample";
+        }
         retrieveMap().put(key, value);
         return new CommandResponse(value);
     }
