@@ -4,4 +4,4 @@ hazelcast:
       kubernetes:
         enabled: true
         namespace: hazelcast-embedded
-        service-name: hzcast-app-svc
+        service-name: hazelcast-embedded-sb
