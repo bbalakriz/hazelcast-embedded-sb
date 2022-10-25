@@ -48,6 +48,7 @@ roleRef:
 subjects:
   - kind: ServiceAccount
     name: default
+    namespace: hazelcast-embedded
 ---
 apiVersion: route.openshift.io/v1
 kind: Route
