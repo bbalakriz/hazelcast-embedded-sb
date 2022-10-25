@@ -32,3 +32,5 @@ Now log into each pod terminal and do a get. It should return the same value irr
 ```
 curl -v  http://localhost:8080/get?key=7889
 ```
+
+Source: https://hazelcast.com/blog/how-to-use-embedded-hazelcast-on-kubernetes/
