@@ -1,4 +1,4 @@
-Deploying this app on Openshift
+## Deploy this app to Openshift
 
 ```
 oc new-build https://github.com/bbalakriz/hazelcast-embedded-sb.git --dockerfile='FROM maven:3.6.3-openjdk-11 as builder
@@ -13,7 +13,9 @@ ENTRYPOINT ["java","-jar","app.jar"]'
 oc apply -f https://raw.githubusercontent.com/bbalakriz/hazelcast-embedded-sb/master/deploy/deployment.yaml
 ```
 
-Test the app by looking at the logs. The logs will have the following entries:
+## Test the app
+
+The pod logs should have the following entries:
 
 ```
 Members {size:2, ver:2} [
