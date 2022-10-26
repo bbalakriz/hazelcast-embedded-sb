@@ -14,7 +14,7 @@ ENTRYPOINT ["java","-jar","app.jar"]'
 
 oc apply -f https://raw.githubusercontent.com/bbalakriz/hazelcast-embedded-sb/master/deploy/deployment.yaml
 
-# Note that Openshift service name and namespace name is referenced in resources/hazelcast.yaml and should be configured correctly.
+# Note that the service and namespace names referenced in resources/hazelcast.yaml should match the corresponding resource names defined in deploy/deployment.yaml.
 ```
 
 ## Test the app
