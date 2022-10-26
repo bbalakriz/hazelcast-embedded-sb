@@ -1,4 +1,4 @@
-Deploying this app on Openshift
+## Deploy this app to Openshift
 
 ```
 oc new-project hazelcast-embedded
@@ -17,7 +17,9 @@ oc apply -f https://raw.githubusercontent.com/bbalakriz/hazelcast-embedded-sb/ma
 # Note that Openshift service name and namespace name is referenced in resources/hazelcast.yaml and should be configured correctly.
 ```
 
-Test the app by looking at the logs. The logs will have the following entries:
+## Test the app
+
+The pod logs should have the following entries:
 
 ```
 Members {size:2, ver:2} [
