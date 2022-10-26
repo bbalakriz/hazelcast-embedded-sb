@@ -1,6 +1,8 @@
 Deploying this app on Openshift
 
 ```
+oc new-project hazelcast-embedded
+
 oc new-build https://github.com/bbalakriz/hazelcast-embedded-sb.git --dockerfile='FROM maven:3.6.3-openjdk-11 as builder
 WORKDIR /project
 COPY . /project/
@@ -11,6 +13,8 @@ COPY --from=builder /project/target/*.jar app.jar
 ENTRYPOINT ["java","-jar","app.jar"]'
 
 oc apply -f https://raw.githubusercontent.com/bbalakriz/hazelcast-embedded-sb/master/deploy/deployment.yaml
+
+# Note that Openshift service name and namespace name is referenced in resources/hazelcast.yaml and should be configured correctly.
 ```
 
 Test the app by looking at the logs. The logs will have the following entries:
@@ -33,4 +37,4 @@ Now log into each pod terminal and do a get. It should return the same value irr
 curl -v  http://localhost:8080/get?key=7889
 ```
 
-Source: https://hazelcast.com/blog/how-to-use-embedded-hazelcast-on-kubernetes/
+Reference: https://hazelcast.com/blog/how-to-use-embedded-hazelcast-on-kubernetes/
